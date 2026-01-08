@@ -18,7 +18,7 @@ public class Dijkstra {
         if (start == null || target == null) return Double.POSITIVE_INFINITY;
         if (start.equals(target)) return 0.0;
         if (!graph.getNodes().contains(start) || !graph.getNodes().contains(target)) {
-            return Double.POSITIVE_INFINITY);
+            return Double.POSITIVE_INFINITY;
         }
 
         Map<String, Double> dist = new HashMap<>();
@@ -28,10 +28,10 @@ public class Dijkstra {
         }
         dist.put(start, 0.0);
 
-        PriorityQueue<String> pq = new PriorityQueue<>(Comparator.comparingDouble(nd -> nd.distance));
+        PriorityQueue<NodeDistance> pq = new PriorityQueue<>(Comparator.comparingDouble(nd -> nd.distance));
         pq.add(new NodeDistance(start, 0.0));
 
-        set<String> settled = new HashSet<>();
+        Set<String> settled = new HashSet<>();
 
         while (!pq.isEmpty()) {
             NodeDistance current = pq.poll();
